@@ -67,15 +67,14 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
                 Long chatId = update.message().chat().id();
                 if ("/start".equals(text)) {
                     sendHelper.sendMessage(chatId,
-                            "Здорова Чувак!!! Для планирования задачи внеси ее в формате :\n**01.01.2022 20:00 Сделать домашнюю работу**",
-                            ParseMode.MarkdownV2
+                            "Здорова Чувак!!! Для планирования задачи внеси ее в формате :\n**01.01.2022 20:00 Сделать домашнюю работу**"
                     );
                 } else {
                     Matcher matcher = PATTERN.matcher(text);
                     LocalDateTime dateTime;
                     if (matcher.find() && (dateTime = parse(matcher.group(1))) != null) {
                         String message = matcher.group(2);
-                        notificationTaskService.create(chatId, message, dateTime);
+                        notificationTaskService.create(chatId, text, dateTime);
                         sendHelper.sendMessage(chatId,
                                 "Задача внесена в расписание!"
                         );

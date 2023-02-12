@@ -21,8 +21,9 @@ public class SendHelper {
         this.telegramBot = telegramBot;
     }
 
-    public void sendMessage(Long chatId, String text,@Nullable ParseMode parseMode) {
-        SendMessage sendMessage = new SendMessage(chatId, text);
+    @Nullable
+    public void sendMessage(Long chatId, String message, ParseMode parseMode) {
+        SendMessage sendMessage = new SendMessage(chatId, message);
         if (parseMode != null) {
             sendMessage.parseMode(parseMode);
         }
@@ -32,8 +33,8 @@ public class SendHelper {
         }
     }
 
-    public void sendMessage(Long chatId, String text) {
-        sendMessage(chatId,text,null);
+    public void sendMessage(Long chatId, String message) {
+        sendMessage(chatId,message,null);
     }
 
 
