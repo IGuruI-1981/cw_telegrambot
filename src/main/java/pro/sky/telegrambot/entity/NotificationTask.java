@@ -33,12 +33,12 @@ public class NotificationTask {
         this.userId = userId;
     }
 
-    public String getText() {
+    public String getMessage() {
         return message;
     }
 
-    public void setText(String text) {
-        this.message = text;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public LocalDateTime getNotificationDateTime() {
